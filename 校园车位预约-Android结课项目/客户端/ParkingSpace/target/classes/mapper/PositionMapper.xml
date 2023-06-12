@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nsu.parkingspace.mapper.PositionMapper">
+    <!--查询空闲车位-->
+    <select id="queryAllFreePosition" resultType="java.lang.String">
+        select place from position where status = 0
+    </select>
+
+    <!--修改车位信息-->
+    <update id="updatePosition" parameterType="java.lang.String">
+        UPDATE position
+        SET status = #{status}
+        WHERE place = #{place}
+    </update>
+</mapper>
